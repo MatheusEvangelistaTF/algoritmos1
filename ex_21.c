@@ -1,0 +1,29 @@
+#include <stdio.h>
+/*O programa pede para inserir dois números inteiros, divide eles e verifica se o resto deles é par ou ímpar, com a resposta resultando em mensagens diferentes no printf.
+*/
+int main(){
+    int num1, num2, resto;
+
+    printf("Digite o primeiro número inteiro (dividendo): ");
+    scanf("%d", &num1);
+
+    printf("Digite o segundo número inteiro (divisor): ");
+    scanf("%d", &num2);
+
+    if (num2 == 0){
+        printf("Divisão por zero não é permitida.\n");
+        return 1;
+    }
+
+    resto = num1 % num2;
+
+    printf("O resto da divisão de %d por %d é: %d\n", num1, num2, resto);
+
+    if (resto % 2 != 0){
+        printf("O resto é ímpar.\n");
+    } else{
+        printf("O resto é par.\n");
+    }
+
+    return 0;
+}
