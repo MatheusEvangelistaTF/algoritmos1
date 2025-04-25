@@ -1,0 +1,35 @@
+#include <stdio.h>
+/*O programa pede para colocar quantos termos da sequência de fibonacci quiser, 
+e logo após, começa um progresso em loop onde ele executa o processo da sequência de fibonacci até chegar na sequência requisitada, enquanto mostra o processo por meio do printf.
+*/
+int memo[100]; 
+
+int fibonacci(int n){
+    if (n == 0) return 0;
+    if (n == 1) return 1;
+
+    if (memo[n] != -1) 
+        return memo[n];
+
+    memo[n] = fibonacci(n - 1) + fibonacci(n - 2); 
+    return memo[n];
+}
+
+int main(){
+    int i, n;
+
+    printf("Quantos termos da sequência de Fibonacci você quer ver? ");
+    scanf("%d", &n);
+
+    for (i = 0; i < 100; i++){
+        memo[i] = -1;
+    }
+
+    printf("Fibonacci até o termo %d:\n", n);
+    for (i = 0; i < n; i++){
+        printf("%d ", fibonacci(i));
+    }
+
+    printf("\n");
+    return 0;
+}
